@@ -399,7 +399,7 @@ figure.planetarium svg {
     top: 1rem;
     right: 1rem;
     font-size: .75em;
-    z-index: 100;
+    z-index: 9; /* Behind modals */
 }
 
 
@@ -422,7 +422,7 @@ figure.planetarium svg {
     top: 1rem;
     right: 1rem;
     font-size: .75em;
-    z-index: 100;
+    z-index: 9; /* Behind modals */
 }
 
 :-webkit-full-screen .navigation ul {
