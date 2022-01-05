@@ -270,6 +270,7 @@ figure.planetarium svg {
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 10;
 }
 
 .modal .modal-close {
@@ -302,7 +303,6 @@ figure.planetarium svg {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10;
 }
 
 .modal:target .modal {
@@ -334,7 +334,7 @@ figure.planetarium svg {
     bottom: 0;
     left: 0;
     background: var(--modal-backdrop-color);
-    z-index: -2;
+    z-index: -1;
 }
 
 .modal-content {
