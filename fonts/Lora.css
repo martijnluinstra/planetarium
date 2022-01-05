@@ -1,0 +1,51 @@
+/* https://github.com/cyrealtype/Lora-Cyrillic */
+
+@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lora'), url('/fonts/Lora-Regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Lora';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Lora'), url('/fonts/Lora-Italic.woff2') format('woff2');
+}
+/*@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Lora'), url('/fonts/Lora-Medium.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Lora';
+    font-style: italic;
+    font-weight: 500;
+    src: local('Lora'), url('/fonts/Lora-MediumItalic.woff2') format('woff2');
+}*/
+@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Lora'), url('/fonts/Lora-SemiBold.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Lora';
+    font-style: italic;
+    font-weight: 600;
+    src: local('Lora'), url('/fonts/Lora-SemiBoldItalic.woff2') format('woff2');
+}
+/*@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Lora'), url('/fonts/Lora-Bold.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Lora';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Lora'), url('/fonts/Lora-BoldItalic.woff2') format('woff2');
+}
+*/

@@ -1,0 +1,497 @@
+@import url('/fonts/Lora.css');
+
+:root {
+    --background: #b38b63;
+    --foreground: hsl(32deg 36.3% 22.2%); /* #4d3a24;*/
+    --paper: #f1eae0;
+
+    --column-width: 58ch;
+    --icon-size: 1.2em;
+
+    --shadow-small-color: hsl(32deg 36.3% 22.2% / 0.5);
+    --shadow-small: 1px 2px 2px var(--shadow-small-color),
+                     2px 4px 4px var(--shadow-small-color);
+    --shadow-medium-color: hsl(32deg 36.3% 22.2% / 0.333);
+    --shadow-medium: 1px 2px 2px var(--shadow-medium-color),
+                     2px 4px 4px var(--shadow-medium-color),
+                     3px 6px 6px var(--shadow-medium-color);
+    --modal-backdrop-color: hsl(32deg 36.3% 10% / 0.333);
+}
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+input, button, textarea, select {
+    font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+/* General declarations */
+[hidden] {
+    display: none !important;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: var(--background);
+    font-family: 'Lora', serif;
+    color: var(--foreground);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2; 
+    hyphens: auto;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.17em; }
+h5 { font-size: 1em; }
+
+h1:not(:last-child),
+h2:not(:last-child),
+h3:not(:last-child),
+h4:not(:last-child),
+h4:not(:last-child),
+p:not(:last-child),
+ul:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+a,
+a:visited {
+    color: var(--foreground);
+}
+
+svg {
+    shape-rendering: geometricPrecision;
+    text-rendering:  optimizeLegibility;
+}
+
+/* Language switch */
+html:not([lang=nl]) .lang-nl {
+    display: none;
+}
+
+html[lang=nl] .lang-en {
+    display: none;
+}
+
+
+/* Layout & generic elements */
+
+main.page {
+    background: center / cover no-repeat url('/img/stars.svg'), center / cover no-repeat url('/img/background.jpg'), var(--background);
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+    max-height: 100%;
+}
+
+.hero {
+    align-self: center;
+    margin: 1rem;
+    width: calc(100% - 2rem);
+    max-width: var(--column-width);
+}
+
+.block,
+.modal:target > .modal-content {
+    position: relative;
+    background: var(--paper);
+    border: .2rem solid var(--foreground);
+    outline: .1rem solid var(--paper);
+    margin: .5rem;
+    padding: 1rem;
+    box-shadow: var(--shadow-small);
+    text-align: center;
+}
+
+.hint {
+    text-align: center;
+    font-size: 85%;
+    /*text-stroke: .5em var(--background);*/
+    /*-webkit-text-stroke: .5em var(--background);*/
+    /*paint-order: stroke;*/
+    /* improvised text-stroke because paint-order does not work in chromium :( */
+    text-shadow: 0 0 .2em var(--background),
+                 0 0 .2em var(--background),
+                 0 0 .3em var(--background),
+                 0 0 .3em var(--background),
+                 0 0 .4em var(--background),
+                 0 0 .4em var(--background),
+                 0 0 .5em var(--background),
+                 0 0 .5em var(--background);
+}
+
+.icon {
+    fill: var(--foreground);
+    height: var(--icon-size);
+    width: var(--icon-size);
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -.1em;
+}
+
+
+/* Planetarium */
+figure.planetarium {
+    flex: 1 1 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+figure.planetarium .wrapper {
+    position: relative;
+    flex-grow: 1;
+}
+
+figure.planetarium figcaption {
+    margin: 0 1rem 1rem 1rem;
+    max-width: var(--column-width);
+    align-self: center;
+}
+
+figure.planetarium svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Make it work on small screens */
+@media (max-height: 650px) or (max-width: 250px) {
+    html, body {
+        height: auto;
+        min-height: 100%;
+    }
+
+    figure.planetarium {
+        flex-basis: 150vmin;
+        flex-shrink: 0;
+    }
+}
+
+
+/* Navigation */
+.navigation ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navigation ul li {
+    display: inline-block;
+    flex-grow: 1;
+    margin: .5em;
+}
+
+.navigation .block {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: .5rem 1rem;
+}
+
+.navigation .control {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.navigation a,
+.navigation button {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform .125s;
+    cursor: pointer;
+}
+
+.navigation button:hover,
+.navigation a:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .navigation ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .navigation ul li:not(.control) {
+        flex-basis: calc(33.333% - .5em * 3);
+    }
+}
+
+
+/* Modal */
+.modal {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.modal .modal-close {
+    display: none;
+    text-decoration: none;
+}
+
+.modal .modal-close .icon {
+    font-weight: bold;
+    font-size: 2em;
+    line-height: 1ch;
+    padding: .5ch;
+    transition: transform .125s;
+    position: sticky;
+    top: 0;
+    right: 0;
+}
+
+.modal .modal-close .icon:hover {
+    transform: scale(1.2);
+}
+
+.modal:target {
+    visibility: visible;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.modal:target .modal {
+    visibility: visible;
+    position: static;
+}
+
+.modal:target > .modal-content {
+    box-shadow: var(--shadow-medium);
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 80vh;
+    text-align: left;
+}
+
+.modal:target > .modal-content > .modal-close {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.modal:target > .modal-content > .modal-close::before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--modal-backdrop-color);
+    z-index: -2;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: calc(var(--column-width) + 2em);
+}
+
+.modal-content header {
+    text-align: center;
+}
+
+.modal-content h1,
+.modal-content h2,
+.modal-content h3,
+.modal-content h4,
+.modal-content h4 {
+    text-align: center;
+}
+
+.modal-content img {
+    width: 30%;
+    display: block;
+    margin: 1rem auto;
+}
+.modal-content img.sun {
+    width: 50%;
+}
+
+.modal-content svg {
+    margin-top: 1.5rem;
+}
+
+:target .modal-content header:not(:last-child)::after,
+:target .modal-content article:not(:last-child)::after {
+    display: block;
+    content: '';
+    width: 35%;
+    height: .1rem;
+    background: var(--foreground);
+    margin: 2rem auto;
+}
+
+@media (max-width: 600px) {
+    .modal:target > .modal-content {
+        box-shadow: var(--shadow-medium);
+        overflow-y: auto;
+        height: calc(100% - 1em);
+        max-height: none;
+        width: calc(100% - 1em);
+        max-width: none;
+    }
+}
+
+
+/* Full screen overrides */
+:fullscreen .is-hidden-fullscreen {
+    display: none;
+}
+
+:fullscreen .navigation {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: .75em;
+    z-index: 100;
+}
+
+
+:fullscreen .navigation ul {
+    display: block;
+}
+
+
+:fullscreen .hero {
+    margin: 0;
+}
+
+/* Safari shenanigans */
+:-webkit-full-screen .is-hidden-fullscreen {
+    display: none;
+}
+
+:-webkit-full-screen .navigation {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: .75em;
+    z-index: 100;
+}
+
+:-webkit-full-screen .navigation ul {
+    display: block;
+}
+
+
+:-webkit-full-screen .hero {
+    margin: 0;
+}
+
+/* SVG */
+:root {
+    --base-font-size: 14px;
+    --base-stroke-width: 2px;
+    --font-size: 1;
+}
+
+svg a {
+    cursor: pointer;
+}
+
+svg .border {
+    fill: none;
+    stroke: var(--foreground);
+    stroke-width: var(--base-stroke-width);
+}
+
+svg .fill-background {
+    fill: var(--background);
+}
+
+svg .fill-foreground {
+    fill: var(--foreground);
+}
+
+svg .label {
+    font-family: 'Lora', serif;
+    font-size: calc(var(--font-size) * var(--base-font-size));
+    fill: var(--foreground);
+    dominant-baseline: central;
+}
+
+.planetarium svg {
+    --font-size: 1.2;
+}
+
+.planetarium svg .orbit-background {
+    fill: none;
+    stroke: var(--background);
+    stroke-width: calc(var(--base-stroke-width) * 8);
+}
+
+.planetarium svg .orbit-foreground {
+    fill: none;
+    stroke: var(--foreground);
+    stroke-width: calc(var(--base-stroke-width) * 2);
+}
+
+.planetarium svg .body {
+    fill: var(--foreground);
+    stroke: var(--background);
+    stroke-width: calc(var(--base-stroke-width) * 3);
+}
+
+.planetarium svg .label {
+    font-weight: 600;
+    stroke: var(--background);
+    stroke-width: calc(var(--base-stroke-width) * 8);
+    stroke-miterlimit: 2;
+    paint-order: stroke;
+}
