@@ -91,9 +91,6 @@ class Planetarium {
     }
 
     handleEnterFullscreen() {
-        document.body.requestFullscreen();
-        console.log('banaan');
-        return;
         const element = document.querySelector('[data-fullscreen-container]');
         if (element.requestFullscreen)
             element.requestFullscreen();
