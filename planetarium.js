@@ -187,6 +187,7 @@ function initSvgFontScale() {
         svg.style.setProperty('--base-font-size', `${fontSize * pixelRatio}px`);
     });
 
+    window.addEventListener('resize', initSvgFontScale);
 }
 
 function initLanguage() {
