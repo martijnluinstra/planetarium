@@ -211,13 +211,13 @@ figure.planetarium svg {
 
 /* Navigation */
 .navigation ul {
+    display: flex;
     margin: 0;
     padding: 0;
-    display: flex;
+    list-style: none;
 }
 
 .navigation ul li {
-    display: inline-block;
     flex-grow: 1;
     margin: .5em;
 }
