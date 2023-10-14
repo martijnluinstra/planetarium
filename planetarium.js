@@ -194,10 +194,20 @@ function initLanguage() {
     const url = new URL(window.location.href);
     let searchParams = url.searchParams;
 
-    if (searchParams.has('lang') && window.AVAILABLE_LANGUAGES.includes(searchParams.get('lang').toLowerCase()))
+    if (searchParams.has('lang') && window.AVAILABLE_LANGUAGES.includes(searchParams.get('lang').toLowerCase())) {
         document.documentElement.lang = searchParams.get('lang').toLowerCase();
-    else if (/^nl\b/.test(navigator.language))
-        document.documentElement.lang = navigator.language;
+        return;
+    }
+
+    // Make language the first user-preferred language that's also available
+    for (const preferred of navigator.languages) {
+        for (const available of window.AVAILABLE_LANGUAGES) {
+            if (new RegExp(`^${available}\\b`).test(preferred)) {
+                document.documentElement.lang = available;
+                return;
+            }
+        }
+    }
 }
 
 initLanguage();

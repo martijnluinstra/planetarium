@@ -96,12 +96,12 @@ svg {
 }
 
 /* Language switch */
-html:not([lang=nl]) .lang-nl {
-    display: none;
+html:not([lang^=nl]) [lang=nl] {
+    display: none !important;
 }
 
-html[lang=nl] .lang-en {
-    display: none;
+html[lang^=nl] [lang=en] {
+    display: none !important;
 }
 
 

@@ -3,7 +3,8 @@ Hi! Thanks for taking a look at my sourcecode. It's not my best work, but it's a
 You can also have a look at it on Github: https://github.com/martijnluinstra/planetarium
 
 Author: Martijn Luinstra (mail@martijnluinstra.nl)
-2022-12: created
+2021-12: created
+2023-10: updated language switching mechanism
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -17,11 +18,11 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
 <main class="page" data-fullscreen-container>
     <header class="hero">
         <div class="block is-hidden-fullscreen">
-            <div class="lang-en">
+            <div lang="en">
                 <h1>Postcard Planetarium</h1>
                 <p>A tiny model of the inner Solar System</p>
             </div>
-            <div class="lang-nl">
+            <div lang="nl">
                 <h1>Post&shy;planetarium</h1>
                 <p>Een klein model van het binnenste deel van het Zonnestelsel</p>
             </div>
@@ -33,14 +34,14 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                 </li>
                 <li class="is-hidden-fullscreen">
                     <a class="block" href="#content-scale">
-                        <span class="lang-en">Scale</span>
-                        <span class="lang-nl">Schaal</span>
+                        <span lang="en">Scale</span>
+                        <span lang="nl">Schaal</span>
                     </a>
                 </li>
                 <li class="is-hidden-fullscreen">
                     <a class="block" href="#content-about">
-                        <span class="lang-en">About</span>
-                        <span class="lang-nl">Over</span>
+                        <span lang="en">About</span>
+                        <span lang="nl">Over</span>
                     </a>
                 </li>
                 <li class="control">
@@ -63,7 +64,7 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
         </nav>
         <noscript>
             <div class="block">
-                <p>It looks like your browser has disabled JavaScript. Unfortunately, the Postcard Planetarium needs a little bit of JavaScript to make sure the animations work properly. It doesn't any third party code or cookies. Please turn on JavaScript for the best experience.</p>
+                <p>It looks like your browser has disabled JavaScript. Unfortunately, the Postcard Planetarium needs a little bit of JavaScript to make sure the animations work properly. It doesn't use any third party code or cookies. Please turn on JavaScript for the best experience.</p>
             </div>
         </noscript>
     </header>
@@ -98,8 +99,8 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                         <circle class="fill-foreground" cx="87308" cy="87498" r="3126"/>
                     </g>
                     <g visibility="hidden" data-trigger="#sun">
-                        <text x="94808" y="87498" class="label lang-en">Sun</text>
-                        <text x="94808" y="87498" class="label lang-nl">Zon</text>
+                        <text x="94808" y="87498" class="label" lang="en">Sun</text>
+                        <text x="94808" y="87498" class="label" lang="nl">Zon</text>
                         <set attributeName="visibility" to="visible" begin="sun.mouseenter" end="sun.mouseleave"/>
                     </g>
                 </a>
@@ -108,8 +109,8 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                 <a href="#content-mercury">
                     <use id="mercury" class="body" href="#body-large"/>
                     <g visibility="hidden" data-trigger="#mercury">
-                        <text x="3200" y="0" class="label lang-en">Mercury</text>
-                        <text x="3200" y="0" class="label lang-nl">Mercurius</text>
+                        <text x="3200" y="0" class="label" lang="en">Mercury</text>
+                        <text x="3200" y="0" class="label" lang="nl">Mercurius</text>
                         <set attributeName="visibility" to="visible" begin="mercury.mouseenter" end="mercury.mouseleave"/>
                     </g>
                     <animateMotion dur="14.45052444s" rotate="0" fill="freeze" repeatCount="indefinite" data-period-scale="0.240842074">
@@ -154,8 +155,8 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                     <a href="#content-moon">
                         <use id="moon" class="body" href="#body-small"/>
                         <g visibility="hidden" data-trigger="#moon">
-                            <text x="1300" y="0" class="label lang-en">Moon</text>
-                            <text x="1300" y="0" class="label lang-nl">Maan</text>
+                            <text x="1300" y="0" class="label" lang="en">Moon</text>
+                            <text x="1300" y="0" class="label" lang="nl">Maan</text>
                             <set attributeName="visibility" to="visible" begin="moon.mouseenter" end="moon.mouseleave"/>
                         </g>
                         <animateMotion dur="4.488135365s" rotate="0" fill="freeze" repeatCount="indefinite" data-period-scale="0.074802256" visibility="hidden">
@@ -164,8 +165,8 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                     </a>
                     <a href="#content-earth">
                         <g visibility="hidden" data-trigger="#earth">
-                            <text x="3200" y="0" class="label lang-en">Earth</text>
-                            <text x="3200" y="0" class="label lang-nl">Aarde</text>
+                            <text x="3200" y="0" class="label" lang="en">Earth</text>
+                            <text x="3200" y="0" class="label" lang="nl">Aarde</text>
                             <set attributeName="visibility" to="visible" begin="earth.mouseenter" end="earth.mouseleave"/>
                         </g>
                     </a>
@@ -176,18 +177,18 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
             </svg>
         </div>
         <figcaption class="hint is-hidden-fullscreen">
-            <div class="lang-en">Click on the celestial bodies to learn more about them</div>
-            <div class="lang-nl">Klik op de hemellichamen om er meer over te leren</div>
+            <div lang="en">Click on the celestial bodies to learn more about them</div>
+            <div lang="nl">Klik op de hemellichamen om er meer over te leren</div>
         </figcaption>
     </figure>
     <section class="modal" id="content-info">
         <div class="modal-content">
             <a class="modal-close" href="#" aria-label="Close"><span class="icon">×</span></a>
-            <header class="lang-en">
+            <header lang="en">
                 <h2>Info</h2>
                 <p>Learn about the celestial bodies below! Or click in the animation to highlight them one by one.</p>
             </header>
-            <header class="lang-nl">
+            <header lang="nl">
                 <h2>Info</h2>
                 <p>Leer hieronder over de hemellichamen! Of klik in de animatie om ze een voor een uit te lichten.</p>
             </header>
@@ -195,7 +196,7 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                 <div class="modal-content">
                     <a class="modal-close" href="#" aria-label="Close"><span class="icon">×</span></a>
                     <img class="sun" src="/img/sun.svg" alt="Drawing of the sun">
-                    <section class="lang-en">
+                    <section lang="en">
                         <h3>Sun</h3>
                         <p>This giant ball of fire at the centre of our solar system is about 4.5 billion years old. It’s actually a star, in fact a pretty average star. This does however not make it any less important (to us), without it we would not exist.</p>
                         <p>Even though the sun as a star is very average in size, it’s massive compared to Earth. With a diameter of 1.4 million kilometres, it’s about 109 times larger than our home planet. The sun is so big, it accounts for 99.8% of our entire Solar System’s mass.</p>
@@ -203,7 +204,7 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                         <p>Fun fact! Even though it was still far away from the sun’s surface, Parker Solar Probe became the <a href="https://youtu.be/LkaLfbuB_6E" target="_blank" rel="noopener noreferrer nofollow">first spacecraft to ‘touch’ the sun</a> in April 2021.
                         </p>
                     </section>
-                    <section class="lang-nl">
+                    <section lang="nl">
                         <h3>Zon</h3>
                         <p>Deze gigantische vuurbal in het midden van ons zonnestelsel is ongeveer 4,5 miljard jaar oud. Het is eigenlijk een ster, en zelfs een behoorlijk gemiddelde ster. Dit maakt de zon echter niet minder belangrijk (voor ons), want zonder zouden we niet bestaan.</p>
                         <p>Ondanks het feit dat de zon een behoorlijk gemiddelde ster is, is deze gigantisch in vergelijking met de aarde. Met een diameter van 1,4 miljoen kilometer is de zon ongeveer 109 keer groter dan onze thuisplaneet. De zon is zo groot dat het 99,8% van de massa van het hele zonnestelsel bevat.</p>
@@ -217,7 +218,7 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                 <div class="modal-content">
                     <a class="modal-close" href="#" aria-label="Close"><span class="icon">×</span></a>
                     <img src="/img/mercury.svg" alt="Drawing of Mercury">
-                    <section class="lang-en">
+                    <section lang="en">
                         <h3>Mercury</h3>
                         <p>Mercury is the inner-most planet in our solar system, at an average distance of 57.9 million kilometres to the sun. It is about 38% the size of Earth, with a diameter of about 4879 km.</p>
                         <p>A ‘year’ on Mercury lasts about 88 Earth days, but the planet rotates around its on axis in about 59 Earth days. This results in very long days on Mercury (day-night cycle), lasting about 176 Earth days, so two Mercury years. You probably wouldn’t want to experience this interesting day-night cycle, unless you really like extreme temperatures. During daytime it can be as hot as 430°C, but during night-time it can chill down to -180°C.</p>
@@ -225,7 +226,7 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                         <h4>Moons</h4>
                         <p>Mercury has no moons.</p>
                     </section>
-                    <section class="lang-nl">
+                    <section lang="nl">
                         <h3>Mercurius</h3>
                         <p>Mercurius is de binnenste planeet in ons zonnestelsel, op een gemiddelde afstand tot de zon van 57,9 miljoen kilometer. De planeet is ongeveer 38% zo groot als de Aarde, met een diameter van 4879 km.</p>
                         <p>Een ‘jaar’ op Mercurius duurt ongeveer 88 aardedagen, maar de planeet draait om z’n eigen as in ongeveer 59 aardedagen. Hierdoor duurt een Mercurius-dag (dag + nacht) erg lang: ongeveer 176 aardedagen, dus twee Mercurius-jaren. Je wilt deze interessante dag-nacht cyclus waarschijnlijk liever niet zelf ervaren, tenzij je houdt van erg extreme temperaturen. Op het heetst van de dag is het op Mercurius 430°C, maar midden in de nacht koelt het af tot -180°C.</p>
@@ -239,7 +240,7 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                 <div class="modal-content">
                     <a class="modal-close" href="#" aria-label="Close"><span class="icon">×</span></a>
                     <img src="/img/venus.svg" alt="Drawing of Venus">
-                    <section class="lang-en">
+                    <section lang="en">
                         <h3>Venus</h3>
                         <p>At about 95% the size of Earth (diameter of 12104 km), Venus is often called Earth’s twin. It’s closer to the sun, at an average distance of 108.2 million kilometres.</p>
                         <p>Venus is still very different from its twin. Its atmosphere is not only very toxic, but also incredibly dense. The pressure at the planet’s surface is more than 90 times the pressure on Earth at sea level. And a runaway greenhouse effect has led to an average temperature of 464°C.</p>
@@ -248,7 +249,7 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                         <h4>Moons</h4>
                         <p>Venus has no moons.</p>
                     </section>
-                    <section class="lang-nl">
+                    <section lang="nl">
                         <h3>Venus</h3>
                         <p>Met een diameter van 12104 km, ongeveer 95% zo groot als de Aarde, wordt Venus vaak de Aarde’s tweeling genoemd. De planeet is dichter bij de zon op een afstand van 108,2 miljoen kilometer.</p>
                         <p>Ondanks de gelijkenissen is Venus heel anders dan de Aarde. De atmosfeer is giftig en heel erg zwaar. Op de planeet’s oppervlakte is de luchtdruk meer dan 90 keer zoveel als op Aarde op zeeniveau en een op hol geslagen broeikaseffect heeft voor een gemiddelde temperatuur van 464°C gezorgd.</p>
@@ -263,14 +264,14 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                 <div class="modal-content">
                     <a class="modal-close" href="#" aria-label="Close"><span class="icon">×</span></a>
                     <img src="/img/earth.svg" alt="Drawing of Earth">
-                    <section class="lang-en">
+                    <section lang="en">
                         <h3>Earth</h3>
                         <p>This is probably the place you’re most familiar with, but you might not know that our average distance to the sun is about 149.6 million kilometres. It takes light about 8 minutes to travel that distance. Earths diameter is about 12756 km, which makes it the biggest planet discussed on this webpage.</p>
                         <p>If you’ve ever left the comfort of your home, you might have noticed that Earth is quite hospitable to life. So far it’s the only place in the entire universe where the presence of life been confirmed. The planet’s water-rich surface and comfortable atmosphere provide an ideal environment for life in many different forms to thrive.</p>
                         <p>Recently, one of its inhabiting species has had particularly noticeable effects on the planet’s climate and ecosystems. For now, the Earth is the friendliest place to life in our Solar System and the only one of its kind. It’d be wise to take care of it.</p>
                         <p>Fun fact! The last day all people were on Earth together was 31 October 2000, there have always been some people since then. Most of them were on board of the International Space Station.</p>
                     </section>
-                    <section class="lang-nl">
+                    <section lang="nl">
                         <h3>Aarde</h3>
                         <p>Dit is waarschijnlijk de plaats waar je het meest bekend mee bent, maar misschien wist je nog niet dat onze gemiddelde afstand tot de zon ongeveer 149,6 miljoen kilometer is. Het kost licht ongeveer 8 minuten om die afstand af te leggen. De Aarde’s diameter is ongeveer 12756 km, en dat maakt de Aarde de grootste planeet die op deze webpagina wordt beschreven.</p>
                         <p>Als je ooit buiten bent geweest, is het je misschien opgevallen dat de Aarde behoorlijk leefbaar is. Tot nu toe is het de enige plek in het universum waar we weten dat er leven is. De planeets waterrijke oppervlakte en haar comfortabele atmosfeer bieden een ideale omgeving die leven voortbrengt in talloze, prachtige vormen.</p>
@@ -281,13 +282,13 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                         <div class="modal-content">
                             <a class="modal-close" href="#" aria-label="Close"><span class="icon">×</span></a>
                             <img src="/img/moon.svg" alt="Drawing of the moon">
-                            <section class="lang-en">
+                            <section lang="en">
                                 <h4>Moon</h4>
                                 <p>The Earth’s trusty companion and only natural satellite. At astronomical scale it’s very close, but that’s still 384 thousand kilometres on average. The moon’s diameter is about 27% the size of the Earth’s at 3475 km. The moon is about 400 times closer to the Earth than the sun, and coincidentally, the moon also happens to be about 400 times smaller than the sun. This neat alignment occasionally results in total solar eclipses.</p>
                                 <p>The moon is the only place (other than the earth) that has been visited by humans. First in July 1969 and last in December 1972, almost 50 years ago. We may be back soon.</p>
                                 <p>Fun fact! By reflecting sunlight, the moon appears as the brightest object in the night sky, but it’s actually about as dark as <a href="https://youtu.be/DMD4UqwmQzk?t=289" target="_blank" rel="noopener noreferrer nofollow">an asphalt road in direct sunlight</a>.</p>
                             </section>
-                            <section class="lang-nl">
+                            <section lang="nl">
                                 <h4>Maan</h4>
                                 <p>De Aarde’s trouwe vriend en enige natuurlijke satelliet. Op astronomische schaal is de maan erg dichtbij, maar dat is nog steeds gemiddeld 384 duizend kilometer. De maan’s diameter is met 3475 km ongeveer 27% van die van de aarde. De maan is ongeveer 400 keer dichterbij de Aarde dan de zon en toevallig ook ongeveer 400 keer kleiner dan de zon. Hierdoor kunnen we op aarde af en toe een totale zonsverduistering zien.</p>
                                 <p>De maan is de enige plaats (naast de aarde uiteraard) die bezocht is door mensen. Voor het eerst in juli 1996 en voor het laatst bijna 50 jaar geleden in december 1972. Misschien komen we snel weer terug!</p>
@@ -301,7 +302,7 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                 <div class="modal-content">
                     <a class="modal-close" href="#" aria-label="Close"><span class="icon">×</span></a>
                     <img src="/img/mars.svg" alt="Drawing of Mars">
-                    <section class="lang-en">
+                    <section lang="en">
                         <h3>Mars</h3>
                         <p>The red planet may be our most studied neighbour and is currently home to some robots send by humans. At an average distance of 228 million kilometres to the sun, it’s further away from the sun than Earth. It’s also a lot smaller than the earth, with a diameter of 6792 km.</p>
                         <p>Mars is home to our Solar System’s tallest mountain, an enormous 26 km tall volcano called Olympus Mons. It’s not just tall, but also very wide. It could cover most of France, if you wished to bring it over.</p>
@@ -314,7 +315,7 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                         <p>Phobos is the largest of the two, at about 27×22×18 km in size and rotates around the planet every 7 hours and 39 minutes, about 6000 km above Mars’ surface.</p>
                         <p>Deimos is about 15×12×11 km in size and rotates around Mars every 30 hours and 18 minutes at about 20000 km above the planet’s surface.</p>
                     </section>
-                    <section class="lang-nl">
+                    <section lang="nl">
                         <h3>Mars</h3>
                         <p>De rode planeet is waarschijnlijk onze meest bestudeerde buur, en is het thuis voor een aantal door mensen gestuurde robots. Met een gemiddelde afstand van 228 miljoen kilometer tot de zon, is Mars een stuk verder van de zon dan de aarde. De planeet is ook en stuk kleiner dan de aarde, met een diameter van 6792 km.</p>
                         <p>Op Mars is ook de hoogste berg van ons zonnestelsel te vinden, een enorme, 26 km hoge vulkaan genaamd Olympus Mons. Deze vulkaan is niet alleen hoog, maar ook erg breed. Hij kan het grootste deel van Frankrijk bedekken, mocht je dat willen proberen.</p>
@@ -334,14 +335,14 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
         <div class="modal-content">
             <a class="modal-close" href="#" aria-label="Close"><span class="icon">×</span></a>
             <section>
-                <div class="lang-en">
+                <div lang="en">
                     <h2>Scale</h2>
                     <p>The Solar System is incomprehensibly big, which makes it hard to make a usable and correctly scaled model. The animation on this page therefore takes some liberties. Even though the distances between the planets and the sun are all to scale, the distance between the earth and the moon is not. Neither are the sizes of the sun, moon and planets. If everything would be displayed to scale, they would be invisible.</p>
                     <p>If you want an accurately view of the sizes and distances in the Solar System, I highly recommend checking out Josh Worth’s demo <a href="https://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html" target="_blank" rel="noopener noreferrer nofollow">‘If the moon were only one pixel.’</a> It’s amazing (if you like scrolling).</p>
                     <h3>Celestial bodies to scale</h3>
                     <p>Even though it's nearly impossible to display both distances and sizes at scale, we can still pick one of them. In the image below, the sizes of the sun, moon and planets are displayed to scale.</p>
                 </div>
-                <div class="lang-nl">
+                <div lang="nl">
                     <h2>Schaal</h2>
                     <p>Het zonnestelsel is ongelovelijk groot en dat maakt het moeilijk om een bruikbaar en correct geschaald model te maken. De animatie op deze pagina neemt daarom wat vrijheden. Ook al zijn de afstanden tussen de planeten en de zon allemaal op schaal, de afstand tussen de aarde en de maan is dat niet. Ook de groottes van de zon, maan en planeten zijn niet op schaal. Als alles wel op schaal zou zijn, zouden de hemellichamen onzichtbaar zijn.</p>
                     <p>Als je graag een accurate weergave wilt van de afstanden en groottes in het zonnestelsel, kan ik Josh Worth’s demo <a href="https://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html" target="_blank" rel="noopener noreferrer nofollow">‘Als de maan één pixel groot was’</a> aanraden. Die is fantastisch (als je van scrollen houdt).</p>
@@ -356,13 +357,13 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                         </g>
                         <g id="scale-moon">
                             <circle cx="7954" cy="1403" r="19" class="fill-foreground"/>
-                            <text x="8300" y="1403" class="label lang-en">Moon</text>
-                            <text x="8300" y="1403" class="label lang-nl">Maan</text>
+                            <text x="8300" y="1403" class="label" lang="en">Moon</text>
+                            <text x="8300" y="1403" class="label" lang="nl">Maan</text>
                         </g>
                         <g id="scale-earth">la
                             <circle cx="7954" cy="2609" r="70" class="fill-foreground"/>
-                            <text x="8300" y="2609" class="label lang-en">Earth</text>
-                            <text x="8300" y="2609" class="label lang-nl">Aarde</text>
+                            <text x="8300" y="2609" class="label" lang="en">Earth</text>
+                            <text x="8300" y="2609" class="label" lang="nl">Aarde</text>
                         </g>
                         <g id="scale-venus">
                             <circle cx="7954" cy="3815" r="66" class="fill-foreground"/>
@@ -370,8 +371,8 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                         </g>
                         <g id="scale-mercury">
                             <circle cx="7954" cy="5021" r="27" class="fill-foreground"/>
-                            <text x="8300" y="5021" class="label lang-en">Mercury</text>
-                            <text x="8300" y="5021" class="label lang-nl">Mercurius</text>
+                            <text x="8300" y="5021" class="label" lang="en">Mercury</text>
+                            <text x="8300" y="5021" class="label" lang="nl">Mercurius</text>
                         </g>
                         <image x="0" y="6369" width="15823" height="15880" href="/img/sun.svg"/>
                     </svg>
@@ -382,12 +383,12 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
     <section class="modal" id="content-about">
         <div class="modal-content">
             <a class="modal-close" href="#" aria-label="Close"><span class="icon">×</span></a>
-            <section class="lang-en">
+            <section lang="en">
                 <h2>About</h2>
                 <p>This is the online version of the Postcard Planetarium, an A6 postcard with a rotating paper mechanism to orbit the earth around the sun and the moon around the earth. It was made as a holiday card for the 2021 festive season.</p>
                 <p>In the animation, our solar system is displayed as if observed from ‘below,’ looking at the sun’s south pole. The initial state of the animation displays the positions of the celestial bodies on 1 January 2022 at 00:00 CET.</p>
                 <p>The Postcard Planetarium was made by <a href="https://martijnluinstra.nl">Martijn Luinstra</a> and inspired by Eise Eisinga’s story and work, as told by Arjen Dijkstra in <a href="https://www.dehemelbouwer.nl/">De Hemelbouwer</a>.</p>
-                <p>If you find any mistakes, typos, or bugs, please don't hessitate to <a href="mailto:mail@martijnluinstra.nl">contact me</a>.</p>
+                <p>If you find any mistakes, typos, or bugs, please don't hesitate to <a href="mailto:mail@martijnluinstra.nl">contact me</a>.</p>
                 <h3>Sources</h3>
                 <p>Alongside the sources linked to in the text, the following sources were used.</p>
                 <ul>
@@ -396,7 +397,7 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                     <li><a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/" target="_blank" rel="noopener noreferrer nofollow">Planetary Fact Sheet - NASA Space Science Data Coordinated Archive</a></li>
                     <li><a href="https://solarsystem.nasa.gov/" target="_blank" rel="noopener noreferrer nofollow">Solar System Exploration- NASA</a></li>
                     <li><a href="https://astronomy.com/news/2020/11/olympus-mons-mars-mega-volcano" target="_blank" rel="noopener noreferrer nofollow">Olympus Mons: Mars’ mega volcano - Astronomy Magazine</a></li>
-                    <li>Font face: <a href="https://github.com/cyrealtype/Lora-Cyrillic" target="_blank" rel="noopener noreferrer nofollow">Lora</a></li>
+                    <li>Typeface: <a href="https://github.com/cyrealtype/Lora-Cyrillic" target="_blank" rel="noopener noreferrer nofollow">Lora</a></li>
                     <li>Art and icons: own work, planets inspired by Anthony Bossard’s <a href="https://thenounproject.com/browse/collection-icon/space-conquest-10136/?p=1" target="_blank" rel="noopener noreferrer nofollow">Space conquest icons</a>.</li>
                 </ul>
                 <h3>Data</h3>
@@ -407,7 +408,7 @@ Author: Martijn Luinstra (mail@martijnluinstra.nl)
                     (<a href="/">reset</a>)
                 </p>
             </section>
-            <section class="lang-nl">
+            <section lang="nl">
                 <h2>Over</h2>
                 <p>Dit is de online versie van het Postplanetarium, een A6 briefkaart met een draaiend, papieren mechanisme dat de aarde rond de zon draait en de maan rond de aarde. Het was gemaakt als een wenskaart voor de feestdagen in 2021.</p>
                 <p>In de animatie is het zonnestelsel weergegeven alsof het wordt bekeken van ‘onderen,’ kijkend in de richting van de zons zuidpool. De animatie begint met de posities van de hemellichamen op 1 januari 2022 om 00:00 (Nederlandse tijd.)</p>
